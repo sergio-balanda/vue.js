@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>index 2</title>
+</head>
+
+<body class="bg-light">
+
+    <div id="app" class="container mt-5">
+        <h1>ACCIONES</h1>
+        <titulo></titulo>
+        <br>
+        <div class="container">
+            <div class="r">
+                <div class="col">
+                    <a href="index.html">vuex - 1 </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vuex@3.1.2/dist/vuex.js"></script>
+    
+    
+    <script>
+        Vue.component('titulo',{
+            template: `
+            <div>
+                <h1>numero: {{ $store.state.num }}</h1>    
+                <hijo/>
+            </div>
+            `
+        });
+        Vue.component('hijo',{
+            template: `
+            <div>
+                <button @click="$store.commit('sum')">+</button>    
+                <button @click="rest">-</button>    
+                <button @click="obtenerJson">obtenerJson</button>    
+                <span>numero en hijo {{ num }}</span>
+                <hr class="mt-5">
+                <ul v-for="item of cursos">
+                    <li>{{ item.nombre }}</li>
+                </ul>
+            </div>
+            `,
+            computed: {
+                ...Vuex.mapState([
+                    'num','cursos'
+                ])
+            },
+            methods: {
+                ...Vuex.mapMutations(['rest']),
+                ...Vuex.mapActions(['obtenerJson'])
+            },
+        });
+
+        const store = new Vuex.Store({
+            state: {
+                num: 10,
+                cursos:[]
+            },
+            mutations: {
+                sum (state) {
+                    state.num++
+                },
+                rest(state){
+                    state.num--
+                },
+                llenarCursos(state, cursosAccion){
+                    state.cursos = cursosAccion
+                }
+            },
+            actions:{
+                obtenerJson: async function({ commit }){
+                    const data = await fetch("cursos.json");
+                    const cursos = await data.json();
+                    commit('llenarCursos',cursos);
+                }
+            },
+        });
+
+        new Vue({
+            el:'#app',
+            store
+        });
+    </script>
+</body>
+</html>

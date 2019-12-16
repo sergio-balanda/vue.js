@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+
+    <div class="alert alert-warning alert-dismissible fade show" role="alert" id="alert">
+        <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <form id="basic-form" action="" method="post">
+        <p>
+          <label for="name">Name <span>(required, at least 3 characters)</span></label>
+          <input id="name" name="name" class="form-control"/>
+        </p>
+      <p>
+          <label for="age">Your Age <span>(minimum 18)</span></label>
+          <input id="age" name="age" class="form-control"/>
+        </p>
+        <p>
+          <label for="email">E-Mail <span>(required)</span></label>
+          <input id="email" name="email" class="form-control"/>
+        </p>
+      <p>
+        <label for="weight">Weight <span>(required if age over 50)</span></label>
+        <input id="weight" name="weight" class="form-control"/>
+        </p>
+        <p>
+          <input class="submit" type="submit" value="SUBMIT">
+        </p>
+    </form>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            //$(".alert-warning").hide();  
+            //var element = document.getElementById("alert").style.opacity = '0';
+            var element = document.getElementById("alert");
+
+
+        });
+
+    </script>
+    <script src="js.js">
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 id="titulo">hola</h1>
+        <p id="parrafo">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum placeat nostrum pariatur optio numquam mollitia blanditiis, quod, tempore dolor libero accusamus dicta reiciendis provident quasi voluptas incidunt quae, ea sed!
+        </p>
+        <p id="parrafo" class="lead">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum placeat nostrum pariatur optio numquam mollitia blanditiis, quod, tempore dolor libero accusamus dicta reiciendis provident quasi voluptas incidunt quae, ea sed!
+        </p>
+        <p id="parrafo" class="lead">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum placeat nostrum pariatur optio numquam mollitia blanditiis, quod, tempore dolor libero accusamus dicta reiciendis provident quasi voluptas incidunt quae, ea sed!
+        </p>
+        <span>span 1</span>
+        <span>span 2</span>
+        <span>span 3</span>
+        <button id="button" class="btn btn-info">cambiar</button>
+        <button id="button2" class="btn btn-info">listener</button>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
+    <script>
+
+        var h1 = document.getElementById("titulo");
+        var h1Texto = h1.innerHTML;
+        console.log(h1);
+        console.log(h1Texto);
+
+        h1.innerHTML="cambio el titulo";
+        h1.style.color="red";
+        h1.style.background="blue";
+        
+        var parrafo = document.getElementById("parrafo");
+        var btn = document.getElementById("button");
+
+        function cambiar(){
+            parrafo.style.color="olive";
+        }
+
+        btn.onclick = cambiar;
+        
+        var lead = document.getElementsByClassName("lead");
+        console.log(lead[0]);
+        
+
+        var span = document.querySelector('span');
+        console.log(span);
+        var allSpan = document.querySelectorAll('span');
+        console.log(allSpan);
+        
+        var btn2 = document.getElementById("button2");
+        btn2.addEventListener('click', function(){
+            console.log("click");
+        })
+    
+    </script>
+</body>
+
+</html>
